@@ -17,7 +17,7 @@ AS
 	WHERE
 		MarcaVehiculoId=@MarcaVehiculoId
 
-	---- comentario
+	---- comentario asdadsad
 
 
 	COMMIT TRANSACTION TRASA
