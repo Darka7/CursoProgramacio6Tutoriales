@@ -4,7 +4,7 @@ AS
 	BEGIN 
 
 	SET NOCOUNT ON
-
+	---adadadad
 	SELECT 
 		MarcaVehiculoId,
 		Descripcion,
