@@ -37,10 +37,11 @@ namespace WebAppLab.Pages.MarcaVehiculo
                 if (TempData.ContainsKey("Msg"))
                 {
                     Mensaje = TempData["Msg"] as string;
-                    TempData.Clear();
+                   
 
                 }
 
+                TempData.Clear();
                 return Page();
             }
             catch (Exception ex)
