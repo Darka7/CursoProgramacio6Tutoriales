@@ -19,11 +19,6 @@ namespace BD
         {
             config = _Config;
 
-            // var test = QueryAsync("str", new { },100);
-            // var test1 = QueryAsync("str", Timeout: 100);
-
-
-
         }
 
         public SqlConnection DbConnection => new SqlConnection(
