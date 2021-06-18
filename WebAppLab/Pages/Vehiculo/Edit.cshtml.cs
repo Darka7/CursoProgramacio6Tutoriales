@@ -28,7 +28,7 @@ namespace WebAppLab.Pages.Vehiculo
 
 
 
-        public IEnumerable<MarcaVehiculoEntity> MarcaVehiculoLista { get; set; }
+        public IEnumerable<MarcaVehiculoEntity> MarcaVehiculoLista { get; set; } = new List<MarcaVehiculoEntity>();
 
         public async Task<IActionResult> OnGet()
         {
