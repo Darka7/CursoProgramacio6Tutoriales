@@ -50,8 +50,7 @@ namespace WebAppLab.Pages.Vehiculo
             {
                 var result = await vehiculoService.Delete(new()
                 {
-
-                    MarcaVehiculoId = id
+                       VehiculoId = id
                 });
 
                 if (result.CodeError != 0)

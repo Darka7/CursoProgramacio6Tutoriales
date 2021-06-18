@@ -6,12 +6,6 @@ var VehiculoGrid;
             icon: "success", title: MensajeApp
         });
     }
-    var app = new Vue({
-        data: {
-            message: 'Hello Ana!'
-        }
-    });
-    app.$mount("#app");
     function OnClickEliminar(id) {
         ComfirmAlert("Desea eliminar el registro? ", "Eliminar", "warning", "#3085d6", "#d33")
             .then(function (result) {

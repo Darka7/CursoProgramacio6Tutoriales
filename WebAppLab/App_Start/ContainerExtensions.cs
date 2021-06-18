@@ -16,6 +16,7 @@ namespace WebAppLab
             services.AddSingleton<IDataAccess,DataAccess>();
 
             services.AddTransient<IMarcaVehiculoService, MarcaVehiculoService>();
+            services.AddTransient<IVehiculoService, VehiculoService>();
 
             return services;
         }

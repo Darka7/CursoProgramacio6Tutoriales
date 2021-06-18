@@ -11,16 +11,6 @@
 
 
 
-    var app = new Vue({
-
-        data: {
-            message: 'Hello Ana!'
-        }
-    });
-    app.$mount("#app");
-
-
-
 
 
 

@@ -118,7 +118,7 @@ namespace WBL
             {
                 var result = sql.ExecuteAsync("VehiculoEliminar", new
                 {
-                    id = entity.VehiculoId,
+                    VehiculoId = entity.VehiculoId,
                 });
 
                 return await result;

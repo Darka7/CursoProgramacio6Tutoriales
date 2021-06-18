@@ -21,7 +21,7 @@ namespace Entity
         public string Matricula { get; set; }
         public string Color { get; set; }
         public string Modelo { get; set; }
-        public DateTime FechaModelo { get; set; }
+        public DateTime FechaModelo { get; set; } = DateTime.Now;
 
        
     }
