@@ -14,8 +14,12 @@
                 <input type="hidden" asp-for="Entity.VehiculoId" />
 
                 <div class="form-group mb-3">
-                    <label for="Entity.Descripcion" class="form-label">Marca Vehiculo</label>
-                    <input type="text" class="form-control" asp-for="Entity.MarcaVehiculoId" maxlength="250" required>
+                    <label for="Entity.MarcaVehiculoId" class="form-label">Marca Vehiculo</label>
+                    
+                    <select asp-for="Entity.MarcaVehiculoId" class="form-select"
+                            asp-items="@(new SelectList(Model.MarcaVehiculoLista,"MarcaVehiculoId","Descripcion"))" required>
+
+                    </select>
                 </div>
 
                 <div class="form-group mb-3">
@@ -40,7 +44,7 @@
 
                 <div class="form-group form-check form-switch">
                     <input class="form-check-input" type="checkbox" asp-for="Entity.Estado" value="true">
-                    <label class="form-check-label" for="Entity.Estado">Estado</label>
+                    <label class="form-check-label" for="Entity_Estado">Estado</label>
                 </div>
 
                 <div class="row">

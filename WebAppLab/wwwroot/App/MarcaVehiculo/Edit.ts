@@ -5,7 +5,6 @@
         data: {
             Formulario:"#FormEdit"
         },
-
         mounted() {
 
             CreateValidator(this.Formulario);

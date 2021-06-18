@@ -74,5 +74,6 @@
     <Build Include="dbo\Tables\Clientes.sql" />
     <Build Include="dbo\Tables\MarcaVehiculo.sql" />
     <Build Include="dbo\Tables\Vehiculo.sql" />
+    <Build Include="dbo\Store Procedures\MarcaVehiculoLista.sql" />
   </ItemGroup>
 </Project>

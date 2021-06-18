@@ -12,10 +12,12 @@ namespace WebAppLab.Pages.Vehiculo
     public class EditModel : PageModel
     {
         private readonly IVehiculoService vehiculoService;
+        private readonly IMarcaVehiculoService marcaVehiculoService;
 
-        public EditModel(IVehiculoService vehiculoService)
+        public EditModel(IVehiculoService vehiculoService,IMarcaVehiculoService marcaVehiculoService)
         {
             this.vehiculoService = vehiculoService;
+            this.marcaVehiculoService = marcaVehiculoService;
         }
 
         [BindProperty(SupportsGet = true)]
@@ -23,6 +25,10 @@ namespace WebAppLab.Pages.Vehiculo
 
         [BindProperty]
         public VehiculoEntity Entity { get; set; } = new VehiculoEntity();
+
+
+
+        public IEnumerable<MarcaVehiculoEntity> MarcaVehiculoLista { get; set; }
 
         public async Task<IActionResult> OnGet()
         {
@@ -32,6 +38,8 @@ namespace WebAppLab.Pages.Vehiculo
                 {
                     Entity = await vehiculoService.GetById(new() { VehiculoId = id });
                 }
+
+                MarcaVehiculoLista = await marcaVehiculoService.GetLista();
 
                 return Page();
 
@@ -54,6 +62,7 @@ namespace WebAppLab.Pages.Vehiculo
                     var result = await vehiculoService.Update(Entity);
 
                     if (result.CodeError != 0) throw new Exception(result.MsgError);
+
                     TempData["Msg"] = "Se actualizó Correctamente";
                 }
                 else
