@@ -11,8 +11,11 @@ AS BEGIN
 		,   V.Modelo
 		,   V.Estado
 		,   V.FechaModelo
+		,	V.TieneDefectos
+		,   V.Defectos
 		,   MV.MarcaVehiculoId
 		,	MV.Descripcion
+	
 				
 
 	FROM dbo.Vehiculo V

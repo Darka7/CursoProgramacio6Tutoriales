@@ -74,7 +74,9 @@ namespace WBL
                     entity.Modelo,
                     entity.FechaModelo,
                     entity.Estado,
-                    entity.MarcaVehiculoId
+                    entity.MarcaVehiculoId,
+                    entity.TieneDefectos,
+                    entity.Defectos
                 });
 
                 return await result;
@@ -99,7 +101,9 @@ namespace WBL
                     entity.Modelo,
                     entity.FechaModelo,
                     entity.Estado,
-                    entity.MarcaVehiculoId
+                    entity.MarcaVehiculoId,
+                    entity.TieneDefectos,
+                    entity.Defectos
                 });
 
                 return await result;

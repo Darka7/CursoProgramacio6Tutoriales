@@ -22,7 +22,9 @@ namespace Entity
         public string Color { get; set; }
         public string Modelo { get; set; }
         public DateTime FechaModelo { get; set; } = DateTime.Now;
+        public bool TieneDefectos { get; set; }
+        public string Defectos { get; set; }
 
-       
+
     }
 }

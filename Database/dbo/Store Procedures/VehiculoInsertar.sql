@@ -4,7 +4,9 @@
 	@Color varchar(250)	,
 	@Modelo varchar(250),
 	@Estado BIT,
-	@FechaModelo DATE
+	@FechaModelo DATE,
+	@TieneDefectos BIT ,
+	@Defectos VARCHAR(1000)= NULL
 	
 AS BEGIN
 SET NOCOUNT ON
@@ -22,6 +24,8 @@ SET NOCOUNT ON
 	    , Modelo 
 	    , Estado 
 		, FechaModelo
+		, TieneDefectos
+		, Defectos
 		)
 		VALUES
 		(
@@ -31,6 +35,8 @@ SET NOCOUNT ON
 	    , @Modelo 
 	    , @Estado 
 		, @FechaModelo
+		, @TieneDefectos
+		, @Defectos
 		)
 
 

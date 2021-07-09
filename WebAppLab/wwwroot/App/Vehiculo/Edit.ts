@@ -1,15 +1,29 @@
 ﻿namespace VehiculoEdit {
+
+   
+    var Entity = $("#AppEdit").data("entity");
+    
     var Formulario = new Vue({
         data: {
-            Formulario: "#FormEdit"
+            Formulario: "#FormEdit",
+            Entity: Entity,
 
         },
 
-        mounted() {
-            CreateValidator(this.Formulario);
+        methods: {
+            RefrescarValidaciones() {
 
+                BValidateData(this.Formulario);
+            }
+        },
+        mounted() {
+            
+
+            CreateValidator(this.Formulario);
+        
         }
+
     });
 
-    Formulario.$mount("AppEdit")
+    Formulario.$mount("#AppEdit")
 }

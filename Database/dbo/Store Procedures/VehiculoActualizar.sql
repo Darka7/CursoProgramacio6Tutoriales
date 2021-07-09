@@ -5,7 +5,9 @@
 	@Color VARCHAR(250),
 	@Modelo VARCHAR(250),
 	@Estado BIT,
-	@FechaModelo DATE
+	@FechaModelo DATE,
+	@TieneDefectos BIT ,
+	@Defectos VARCHAR(1000)= NULL
 AS BEGIN
 SET NOCOUNT ON
 
@@ -20,7 +22,9 @@ SET NOCOUNT ON
 	 Color=@Color,
 	 Modelo=@Modelo,
 	 Estado=@Estado,
-	 FechaModelo=@FechaModelo
+	 FechaModelo=@FechaModelo,
+	 TieneDefectos=@TieneDefectos,
+	 Defectos=@Defectos
 
 	WHERE VehiculoId=@VehiculoId
 
