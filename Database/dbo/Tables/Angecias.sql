@@ -1,8 +1,0 @@
-﻿CREATE TABLE dbo.Angecias
-(
-	   AngeciasId INT NOT NULL IDENTITY(1,1) CONSTRAINT PK_Angecias PRIMARY KEY CLUSTERED(AngeciasId)
-	 , Localizacion VARCHAR(250) NOT NULL
-	 , Estado BIT NOT NULL
-)
-WITH (DATA_COMPRESSION = PAGE)
-GO

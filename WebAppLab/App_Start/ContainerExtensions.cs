@@ -17,6 +17,10 @@ namespace WebAppLab
 
             services.AddTransient<IMarcaVehiculoService, MarcaVehiculoService>();
             services.AddTransient<IVehiculoService, VehiculoService>();
+            services.AddTransient<IAgenciaService, AgenciaService>();
+            services.AddTransient<ICatalogoProvinciaService, CatalogoProvinciaService>();
+            services.AddTransient<ICatalogoCantonService, CatalogoCantonService>();
+            services.AddTransient<ICatalogoDistritoService, CatalogoDistritoService>();
 
             return services;
         }

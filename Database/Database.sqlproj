@@ -70,10 +70,20 @@
     <Build Include="dbo\Store Procedures\VehiculoInsertar.sql" />
     <Build Include="dbo\Store Procedures\VehiculoObtener.sql" />
     <Build Include="dbo\Tables\Alquiler.sql" />
-    <Build Include="dbo\Tables\Angecias.sql" />
+    <Build Include="dbo\Tables\Agencias.sql" />
     <Build Include="dbo\Tables\Clientes.sql" />
     <Build Include="dbo\Tables\MarcaVehiculo.sql" />
     <Build Include="dbo\Tables\Vehiculo.sql" />
     <Build Include="dbo\Store Procedures\MarcaVehiculoLista.sql" />
+    <Build Include="dbo\Tables\CatalogoDistrito.sql" />
+    <Build Include="dbo\Tables\CatalogoCanton.sql" />
+    <Build Include="dbo\Tables\CatalogoProvincia.sql" />
+    <Build Include="dbo\Store Procedures\AgenciaObtener.sql" />
+    <Build Include="dbo\Store Procedures\AgenciaInsertar.sql" />
+    <Build Include="dbo\Store Procedures\AgenciaActualizar.sql" />
+    <Build Include="dbo\Store Procedures\AgenciaEliminar.sql" />
+    <Build Include="dbo\Store Procedures\CatalogoProvinciaLista.sql" />
+    <Build Include="dbo\Store Procedures\CatalogoCantonLista.sql" />
+    <Build Include="dbo\Store Procedures\CatalogoDistritoLista.sql" />
   </ItemGroup>
 </Project>

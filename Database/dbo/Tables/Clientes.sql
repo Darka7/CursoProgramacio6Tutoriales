@@ -4,8 +4,8 @@
 	 , Nombre VARCHAR(250) NOT NULL
 	 , Direccion VARCHAR(500) NOT NULL
 	 , Telefono VARCHAR(500) NOT NULL
-	 , AngeciasId INT NOT NULL 
-		CONSTRAINT FK_Clientes_Angecias FOREIGN KEY(AngeciasId) REFERENCES dbo.Angecias(AngeciasId)
+	 , AgenciaId INT NOT NULL 
+		CONSTRAINT FK_Clientes_Angecias FOREIGN KEY(AgenciaId) REFERENCES dbo.Agencias(AgenciaId)
 	 , Estado BIT
 )
 WITH (DATA_COMPRESSION = PAGE)
