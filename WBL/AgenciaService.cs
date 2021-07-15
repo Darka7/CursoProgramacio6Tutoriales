@@ -31,11 +31,16 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryAsync<AgenciaEntity>("AgenciaObtener");
+                var result = sql.QueryAsync<AgenciaEntity,
+                    CatalogoProvinciaEntity,
+                    CatalogoCantonEntity,
+                    CatalogoDistritoEntity
+                    
+                    >("AgenciaObtener", "IdCatalogoProvincia,IdCatalogoCanton,IdCatalogoDistrito");
 
                 return await result;
             }
-            catch (Exception)
+            catch (Exception EX)
             {
 
                 throw;

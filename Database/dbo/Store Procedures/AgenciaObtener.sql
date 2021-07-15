@@ -8,10 +8,13 @@ AS BEGIN
 			A.AgenciaId
 		,   A.Nombre
 		,   A.Estado
+
 		,   CP.IdCatalogoProvincia
 		,	CP.NombreCatalogoProvincia
-		,   CC.IdCatalogoCanton
+
+		, CC.IdCatalogoCanton
 		,	CC.NombreCatalogoCanton
+
 		,   CD.IdCatalogoDistrito
 		,	CD.NombreCatalogoDistrito
 	
@@ -21,7 +24,7 @@ AS BEGIN
 	 INNER JOIN dbo.CatalogoProvincia CP
          ON A.IdCatalogoProvincia = CP.IdCatalogoProvincia
      INNER JOIN dbo.CatalogoCanton CC
-         ON A.IdCatalogoProvincia = CC.IdCatalogoCanton
+         ON A.IdCatalogoCanton = CC.IdCatalogoCanton
 	 INNER JOIN dbo.CatalogoDistrito CD
          ON A.IdCatalogoDistrito = CD.IdCatalogoDistrito
 	WHERE

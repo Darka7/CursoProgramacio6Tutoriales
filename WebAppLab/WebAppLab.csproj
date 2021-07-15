@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="wwwroot\App\Agencia\Grid.ts" />
-    <TypeScriptCompile Include="wwwroot\App\Agencia\Edit.ts" />
     <TypeScriptCompile Include="wwwroot\App\MarcaVehiculo\Edit.ts" />
     <TypeScriptCompile Include="wwwroot\App\MarcaVehiculo\Grid.ts" />
   </ItemGroup>

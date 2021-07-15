@@ -11,7 +11,7 @@ namespace WBL
 {
     public interface ICatalogoCantonService
     {
-        Task<IEnumerable<CatalogoCantonEntity>> GetLista();
+        Task<IEnumerable<CatalogoCantonEntity>> GetLista(CatalogoProvinciaEntity entity);
     }
 
     public class CatalogoCantonService : ICatalogoCantonService
@@ -24,11 +24,14 @@ namespace WBL
             sql = _sql;
         }
 
-        public async Task<IEnumerable<CatalogoCantonEntity>> GetLista()
+        public async Task<IEnumerable<CatalogoCantonEntity>> GetLista(CatalogoProvinciaEntity entity)
         {
             try
             {
-                var result = sql.QueryAsync<CatalogoCantonEntity, CatalogoProvinciaEntity>("CatalogoCantonLista", "IdCatalogoCanton, IdCatalogoProvincia");
+                var result = sql.QueryAsync<CatalogoCantonEntity>("CatalogoCantonLista",new { 
+                entity.IdCatalogoProvincia 
+                
+                });
 
                 return await result;
             }

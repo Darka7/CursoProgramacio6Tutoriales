@@ -10,14 +10,16 @@ namespace Entity
     {
         public CatalogoCantonEntity()
         {
+            CatalogoProvincia = CatalogoProvincia ?? new CatalogoProvinciaEntity();
 
-            Provincia = Provincia ?? new CatalogoProvinciaEntity();
+
         }
 
         public int? IdCatalogoCanton { get; set; }
 
         public string NombreCatalogoCanton { get; set; }
         public int? IdCatalogoProvincia { get; set; }
-        public virtual CatalogoProvinciaEntity Provincia { get; set; }
+
+        public CatalogoProvinciaEntity CatalogoProvincia { get; set; }
     }
 }

@@ -31,11 +31,10 @@ namespace WebAppLab.Pages.Agencia
         public int? id { get; set; }
 
         [BindProperty]
+        [FromBody]
         public AgenciaEntity Entity { get; set; } = new AgenciaEntity();
 
         public IEnumerable<CatalogoProvinciaEntity> ProvinciaLista { get; set; } = new List<CatalogoProvinciaEntity>();
-        public IEnumerable<CatalogoCantonEntity> CantonLista { get; set; } = new List<CatalogoCantonEntity>();
-        public IEnumerable<CatalogoDistritoEntity> DistritoLista { get; set; } = new List<CatalogoDistritoEntity>();
 
 
         public async Task<IActionResult> OnGet()
@@ -48,8 +47,7 @@ namespace WebAppLab.Pages.Agencia
                 }
 
                 ProvinciaLista = await catalogoProvinciaService.GetLista();
-                CantonLista = await catalogoCantonService.GetLista();
-                DistritoLista = await catalogoDistritoService.GetLista();
+             
 
 
 
@@ -68,37 +66,71 @@ namespace WebAppLab.Pages.Agencia
         {
             try
             {
+
+                var result = new DBEntity();
                 if (Entity.AgenciaId.HasValue)
                 {
                     //Actualizar
-                    var result = await agenciaService.Update(Entity);
+                     result = await agenciaService.Update(Entity);
 
-                    if (result.CodeError != 0) throw new Exception(result.MsgError);
-
-                    TempData["Msg"] = "Se actualizó Correctamente";
+                   
                 }
                 else
                 {
                     //Nuevo
-                    var result = await agenciaService.Create(Entity);
+                     result = await agenciaService.Create(Entity);
 
-                    if (result.CodeError != 0) throw new Exception(result.MsgError);
-
-                    TempData["Msg"] = "Se agrego Correctamente";
+                    
                 }
 
-                return RedirectToPage("Grid");
+                return new JsonResult(result);
 
 
             }
             catch (Exception ex)
             {
 
-                return Content(ex.Message);
+                return new JsonResult(new DBEntity {CodeError=ex.HResult,MsgError=ex.Message });
             }
 
 
 
         }
+
+
+        public async Task<IActionResult> OnPostChangeProvincia()
+        {
+            try
+            {
+                var result = await catalogoCantonService.GetLista(
+                    new CatalogoProvinciaEntity { IdCatalogoProvincia = Entity.IdCatalogoProvincia }
+                    );
+
+                return new JsonResult(result);
+            }
+            catch (Exception ex)
+            {
+
+                return new JsonResult(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });
+            }
+        }
+
+        public async Task<IActionResult> OnPostChangeCanton()
+        {
+            try
+            {
+                var result = await catalogoDistritoService.GetLista(
+                    new CatalogoCantonEntity { IdCatalogoCanton = Entity.IdCatalogoCanton }
+                    );
+
+                return new JsonResult(result);
+            }
+            catch (Exception ex)
+            {
+
+                return new JsonResult(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });
+            }
+        }
+
     }
 }

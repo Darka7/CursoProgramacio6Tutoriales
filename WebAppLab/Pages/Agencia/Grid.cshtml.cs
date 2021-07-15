@@ -20,19 +20,14 @@ namespace WebAppLab.Pages.Agencia
 
         public IEnumerable<AgenciaEntity> GridList { get; set; } = new List<AgenciaEntity>();
 
-        public string Mensaje { get; set; } = "";
+        
         public async Task<IActionResult> OnGet()
         {
             try
             {
                 GridList = await agenciaService.Get();
 
-                if (TempData.ContainsKey("Msg"))
-                {
-                    Mensaje = TempData["Msg"].ToString();
-
-                }
-                TempData.Clear();
+                
                 return Page();
 
 
@@ -44,7 +39,7 @@ namespace WebAppLab.Pages.Agencia
             }
         }
 
-        public async Task<IActionResult> OnGetEliminar(int id)
+        public async Task<JsonResult> OnDeleteEliminar(int id)
         {
             try
             {
@@ -53,22 +48,14 @@ namespace WebAppLab.Pages.Agencia
                     AgenciaId = id
                 });
 
-                if (result.CodeError != 0)
-                {
-                    throw new Exception(result.MsgError);
-                }
-
-                Mensaje = "Se elimino correctamente";
 
 
-                TempData["Msg"] = "Se elimino correctamente";
-
-                return Redirect("Grid");
+                return new JsonResult(result);
             }
             catch (Exception ex)
             {
 
-                return Content(ex.Message);
+                return new JsonResult(new DBEntity{CodeError=ex.HResult,MsgError=ex.Message});
             }
 
         }

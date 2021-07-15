@@ -1,14 +1,14 @@
 ﻿CREATE PROCEDURE [dbo].[CatalogoCantonLista]
-@IdCatalogoProvincia INT
+@IdCatalogoProvincia INT=null
 AS
 	BEGIN
 		SET NOCOUNT ON
 		SELECT 
-		IdCatalogoProvincia,
-		NombreCatalogoProvincia
+		IdCatalogoCanton,
+		NombreCatalogoCanton
 
 		FROM	
-			dbo.CatalogoProvincia
+			dbo.CatalogoCanton
 
 	    WHERE
 		    IdCatalogoProvincia=@IdCatalogoProvincia

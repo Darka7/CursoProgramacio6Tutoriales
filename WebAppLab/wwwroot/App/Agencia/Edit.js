@@ -6,14 +6,51 @@ var AgenciaEdit;
         data: {
             Formulario: "#FormEdit",
             Entity: Entity,
+            CantonLista: [],
+            DistritoLista: [],
         },
         methods: {
-            RefrescarValidaciones: function () {
-                BValidateData(this.Formulario);
+            OnChangeProvincia: function () {
+                var _this = this;
+                Loading.fire("Cargando..");
+                App.AxiosProvider.AgenciaChanceProvincia(this.Entity).then(function (data) {
+                    Loading.close();
+                    _this.CantonLista = data;
+                });
+            },
+            OnChangeCanton: function () {
+                var _this = this;
+                Loading.fire("Cargando..");
+                App.AxiosProvider.AgenciaChanceCanton(this.Entity).then(function (data) {
+                    Loading.close();
+                    _this.DistritoLista = data;
+                });
+            },
+            Save: function () {
+                if (BValidateData(this.Formulario)) {
+                    Loading.fire("Guardando");
+                    App.AxiosProvider.AgenciaGuardar(this.Entity).then(function (data) {
+                        Loading.close();
+                        if (data.CodeError == 0) {
+                            Toast.fire({ title: "Se guardo sastifactoriamente!", icon: "success" })
+                                .then(function () { return window.location.href = "Agencia/Grid"; });
+                        }
+                        else {
+                            Toast.fire({ title: data.MsgError, icon: "error" });
+                        }
+                    });
+                }
+                else {
+                    Toast.fire({ title: "Por favor complete los campos requeridos!", icon: "error" });
+                }
             }
         },
         mounted: function () {
             CreateValidator(this.Formulario);
+        },
+        created: function () {
+            this.OnChangeProvincia();
+            this.OnChangeCanton();
         }
     });
     Formulario.$mount("#AppEdit");

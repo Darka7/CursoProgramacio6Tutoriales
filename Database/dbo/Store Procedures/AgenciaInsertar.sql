@@ -1,6 +1,5 @@
 ﻿CREATE PROCEDURE dbo.AgenciaInsertar
-    @AgenciaId INT,
-	@Nombre INT,
+	@Nombre VARCHAR(500),
 	@IdCatalogoProvincia INT,
 	@IdCatalogoCanton INT,
 	@IdCatalogoDistrito INT,

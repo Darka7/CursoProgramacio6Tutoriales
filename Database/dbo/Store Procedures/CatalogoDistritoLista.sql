@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[CatalogoDistritoLista]
-@IdCatalogoDistrito INT
+﻿CREATE PROCEDURE [dbo].CatalogoDistritoLista
+@IdCatalogoCanton INT=null
 AS
 	BEGIN
 		SET NOCOUNT ON
@@ -11,7 +11,7 @@ AS
 			dbo.CatalogoDistrito
 
 	    WHERE
-		    IdCatalogoDistrito=@IdCatalogoDistrito
+		    IdCatalogoCanton=@IdCatalogoCanton
 
 
 	END
