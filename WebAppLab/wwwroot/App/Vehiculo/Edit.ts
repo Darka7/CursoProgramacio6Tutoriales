@@ -12,8 +12,13 @@
 
         methods: {
             RefrescarValidaciones() {
+                setTimeout(() => {
 
-                BValidateData(this.Formulario);
+
+                    BValidateData(this.Formulario);
+                },200);
+             
+                
             }
         },
         mounted() {

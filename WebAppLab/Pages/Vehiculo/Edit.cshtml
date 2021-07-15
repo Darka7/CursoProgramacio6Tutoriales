@@ -48,10 +48,10 @@
 
                 </div>
               
-                <div v-if="Entity.TieneDefectos" class="form-group mb-3">
+                <div v-show="Entity.TieneDefectos" class="form-group mb-3">
 
                     <label for="Entity.Defectos" class="form-label">Comentarios de los defectos</label>
-                    <textarea class="form-control" rows="2" asp-for="Entity.Defectos" maxlength="1000" required></textarea>
+                    <textarea class="form-control" rows="2" asp-for="Entity.Defectos" maxlength="1000" :required="Entity.TieneDefectos"></textarea>
 
                 </div>
 
@@ -77,6 +77,6 @@
 
 @section Scripts{
 
-    <script defer src="~/App/Agencia/Edit.js"></script>
+    <script defer src="~/App/Vehiculo/Edit.js"></script>
 
 }

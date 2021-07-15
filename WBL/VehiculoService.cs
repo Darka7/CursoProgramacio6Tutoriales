@@ -76,7 +76,7 @@ namespace WBL
                     entity.Estado,
                     entity.MarcaVehiculoId,
                     entity.TieneDefectos,
-                    entity.Defectos
+                    Defectos = entity.TieneDefectos ? entity.Defectos:null
                 });
 
                 return await result;
@@ -103,7 +103,7 @@ namespace WBL
                     entity.Estado,
                     entity.MarcaVehiculoId,
                     entity.TieneDefectos,
-                    entity.Defectos
+                    Defectos = entity.TieneDefectos ? entity.Defectos : null
                 });
 
                 return await result;

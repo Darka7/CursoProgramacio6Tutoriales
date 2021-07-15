@@ -9,7 +9,10 @@ var VehiculoEdit;
         },
         methods: {
             RefrescarValidaciones: function () {
-                BValidateData(this.Formulario);
+                var _this = this;
+                setTimeout(function () {
+                    BValidateData(_this.Formulario);
+                }, 200);
             }
         },
         mounted: function () {
