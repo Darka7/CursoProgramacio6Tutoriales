@@ -7,7 +7,7 @@ AS
 
 	 SELECT
 	 C.ClientesId,
-	 C.Nombre,
+	 C.NombreCompleto,
 	 C.Direccion,
 	 C.Telefono,
 	 C.Estado,

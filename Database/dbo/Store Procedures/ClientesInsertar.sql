@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].ClientesInsertar
-		@Nombre VARCHAR(500),
+		@NombreCompleto VARCHAR(500),
 	@Direccion varchar(250),
 	@Telefono varchar(250),
 	@AgenciaId INT,
@@ -16,7 +16,7 @@ SET NOCOUNT ON
 		
 		INSERT INTO dbo.Clientes 
 		(	       
-	      Nombre,
+	      NombreCompleto,
 		  Direccion,
 		  Telefono,
 		  AgenciaId,
@@ -25,7 +25,7 @@ SET NOCOUNT ON
 		VALUES
 		(
 		
-	      @Nombre,
+	      @NombreCompleto,
 		  @Direccion,
 		  @Telefono,
 		  @AgenciaId,

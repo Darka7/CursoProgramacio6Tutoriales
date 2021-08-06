@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].ClientesActualizar
 	@ClientesId INT,
-	@Nombre VARCHAR(500),
+	@NombreCompleto VARCHAR(500),
 	@Direccion varchar(250),
 	@Telefono varchar(250),
 	@AgenciaId INT,
@@ -16,7 +16,7 @@ SET NOCOUNT ON
 
 		
 		update dbo.Clientes set     
-	      Nombre=@Nombre,
+	      NombreCompleto=@NombreCompleto,
 		  Direccion=@Direccion,
 		  Telefono=@Telefono,
 		  AgenciaId=@AgenciaId,
