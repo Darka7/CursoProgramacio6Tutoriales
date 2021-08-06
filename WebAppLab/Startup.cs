@@ -26,6 +26,8 @@ namespace WebAppLab
         {
 
             services.AddDIContainer();
+            services.AddConfigHttpClient(Configuration);
+
             /// AddJsonOptions es para configurar el json a pascal
             services.AddRazorPages()
                 .AddJsonOptions(option =>

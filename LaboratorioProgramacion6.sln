@@ -15,7 +15,7 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Databa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppLab", "WebAppLab\WebAppLab.csproj", "{618FD43D-B987-4BA8-AFBE-A447031566EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiRest", "WebApiRest\WebApiRest.csproj", "{136145B8-72B6-4FF8-88B0-4E75FE2FBF3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiRest", "WebApiRest\WebApiRest.csproj", "{136145B8-72B6-4FF8-88B0-4E75FE2FBF3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
