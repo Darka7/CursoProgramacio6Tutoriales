@@ -23,6 +23,8 @@ namespace WebAppLab.Pages.Cliente
 
         public ClientesEntity Entity { get; set; } = new ClientesEntity();
 
+
+        public IEnumerable<AgenciaEntity> AgenciaLista { get; set; } = new List<AgenciaEntity>();
         public async Task<IActionResult> OnGet()
         {
             try
@@ -32,6 +34,8 @@ namespace WebAppLab.Pages.Cliente
                     Entity = await service.ClientesGetById(id.Value);
                 }
 
+
+                AgenciaLista = await service.AgenciaGetLista();
 
                 return Page();
             }

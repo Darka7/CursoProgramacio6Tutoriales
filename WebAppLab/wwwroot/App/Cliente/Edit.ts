@@ -9,10 +9,12 @@ namespace ClienteEdit {
         data: {
             Formulario: "#FormEdit",
             Entity: Entity,
-          
+            
         },
 
         methods: {
+            
+
 
             ClienteServicio(entity) {
                 console.log(entity);

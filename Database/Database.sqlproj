@@ -90,5 +90,6 @@
     <Build Include="dbo\Store Procedures\ClientesActualizar.sql" />
     <Build Include="dbo\Store Procedures\ClientesObtener.sql" />
     <Build Include="dbo\Store Procedures\ClientesEliminar.sql" />
+    <Build Include="dbo\Store Procedures\AgenciaLista.sql" />
   </ItemGroup>
 </Project>

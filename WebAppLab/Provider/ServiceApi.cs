@@ -16,7 +16,7 @@ namespace WebAppLab
             this.client = client;
         }
 
-
+        #region Clientes
         public async Task<IEnumerable<ClientesEntity>> ClientesGet()
         {
             var result = await client.ServicioGetAsync<IEnumerable<ClientesEntity>>("api/Clientes");
@@ -27,16 +27,27 @@ namespace WebAppLab
 
         public async Task<ClientesEntity> ClientesGetById(int id)
         {
-            var result = await client.ServicioGetAsync<ClientesEntity>("api/Clientes/"+id);
+            var result = await client.ServicioGetAsync<ClientesEntity>("api/Clientes/" + id);
 
-            if(result.CodeError is not 0) throw new Exception(result.MsgError);
+            if (result.CodeError is not 0) throw new Exception(result.MsgError);
 
             return result;
 
         }
+        #endregion
 
 
-  
+        #region Agencias
+        public async Task<IEnumerable<AgenciaEntity>> AgenciaGetLista()
+        {
+            var result = await client.ServicioGetAsync<IEnumerable<AgenciaEntity>>("api/Agencia/Lista");
+
+            return result;
+
+        }
+        #endregion
+
+
 
     }
 }

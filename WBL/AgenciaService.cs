@@ -15,6 +15,7 @@ namespace WBL
         Task<IEnumerable<AgenciaEntity>> Get();
         Task<AgenciaEntity> GetById(AgenciaEntity entity);
         Task<DBEntity> Update(AgenciaEntity entity);
+        Task<IEnumerable<AgenciaEntity>> GetLista();
     }
 
     public class AgenciaService : IAgenciaService
@@ -37,6 +38,22 @@ namespace WBL
                     CatalogoDistritoEntity
                     
                     >("AgenciaObtener", "IdCatalogoProvincia,IdCatalogoCanton,IdCatalogoDistrito");
+
+                return await result;
+            }
+            catch (Exception EX)
+            {
+
+                throw;
+            }
+        }
+
+
+        public async Task<IEnumerable<AgenciaEntity>> GetLista()
+        {
+            try
+            {
+                var result = sql.QueryAsync<AgenciaEntity>("AgenciaLista");
 
                 return await result;
             }
