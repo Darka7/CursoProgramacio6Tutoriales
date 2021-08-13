@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor Context;
+
+@{ 
+
+  var  UsuarioSesion = Context.HttpContext.Session.Get<Entity.UsuariosEntity>(IApp.UsuarioSession);
+
+
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -331,7 +340,7 @@
                     <div class="profile-img"> <img src="~/Assets/template/img/profile.png" alt="user" class="w-100" /> </div>
                     <!-- User profile text-->
                     <div class="profile-text pt-1 dropdown">
-                        <a href="#" class="dropdown-toggle u-dropdown w-100 text-white d-block position-relative" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Andrey</a>
+                        <a href="#" class="dropdown-toggle u-dropdown w-100 text-white d-block position-relative" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">@UsuarioSesion.Nombre</a>
                         <div class="dropdown-menu animated flipInY" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item" href="#">
                                 <i data-feather="user" class="feather-sm text-info me-1 ms-1"></i> My
@@ -372,20 +381,37 @@
                                 <span class="hide-menu">Matenimientos </span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
+
                                 <li class="sidebar-item">
-                                    <a href="index.html" class="sidebar-link">
-                                        <i class="mdi mdi-adjust"></i>
-                                        <span class="hide-menu"> Marcar Vehiculo </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="index2.html" class="sidebar-link">
+                                    <a asp-page="/Vehiculo/Grid" class="sidebar-link">
                                         <i class="mdi mdi-adjust"></i>
                                         <span class="hide-menu"> Vehiculos </span>
                                     </a>
                                 </li>
 
+                                <li class="sidebar-item">
+                                    <a asp-page="/MarcaVehiculo/Grid" class="sidebar-link">
+                                        <i class="mdi mdi-adjust"></i>
+                                        <span class="hide-menu"> Marcar Vehiculo </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a asp-page="/Agencia/Grid" class="sidebar-link">
+                                        <i class="mdi mdi-adjust"></i>
+                                        <span class="hide-menu"> Agencia </span>
+                                    </a>
+                                </li>
+
                             </ul>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link  waves-effect waves-dark" asp-page="/Cliente/Grid"
+                               aria-expanded="false">
+                                <i class="mdi mdi-face"></i>
+                                <span class="hide-menu">Clientes </span>
+                            </a>
+                          
                         </li>
 
 
@@ -417,9 +443,9 @@
 
             <!-- footer -->
             <!-- -------------------------------------------------------------- -->
-            <footer class="footer text-center">
+            @*<footer class="footer text-center">
                 All Rights Reserved by Curso Programacion 6s
-            </footer>
+            </footer>*@
             <!-- -------------------------------------------------------------- -->
             <!-- End footer -->
             <!-- -------------------------------------------------------------- -->

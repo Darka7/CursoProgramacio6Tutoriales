@@ -29,7 +29,7 @@ namespace WebAppLab.Pages.MarcaVehiculo
         {
             try
             {
-
+                if (!this.SessionOnline()) return RedirectToPage("../Login");
 
                 GridList = await marcaVehiculoService.Get();
 

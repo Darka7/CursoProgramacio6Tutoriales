@@ -28,6 +28,17 @@ namespace WebAppLab
             services.AddDIContainer();
             services.AddConfigHttpClient(Configuration);
 
+            services.AddHttpContextAccessor();
+
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             /// AddJsonOptions es para configurar el json a pascal
             services.AddRazorPages()
                 .AddJsonOptions(option =>
@@ -56,6 +67,7 @@ namespace WebAppLab
                 app.UseHsts();
             }
 
+            app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

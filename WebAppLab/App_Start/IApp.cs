@@ -7,7 +7,11 @@ namespace WebAppLab
 {
     public struct IApp
     {
-
+        public static string UsuarioSession => "UsuarioSession";
 
     }
+
+
+
+
 }

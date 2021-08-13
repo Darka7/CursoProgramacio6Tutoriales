@@ -25,6 +25,9 @@ namespace WebAppLab.Pages.Agencia
         {
             try
             {
+
+                if (!this.SessionOnline()) return RedirectToPage("../Login");
+
                 GridList = await agenciaService.Get();
 
                 
