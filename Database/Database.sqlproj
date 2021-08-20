@@ -67,7 +67,6 @@
     <Build Include="dbo\Store Procedures\VehiculoEliminar.sql" />
     <Build Include="dbo\Store Procedures\VehiculoInsertar.sql" />
     <Build Include="dbo\Store Procedures\VehiculoObtener.sql" />
-    <Build Include="dbo\Tables\Alquiler.sql" />
     <Build Include="dbo\Tables\Agencias.sql" />
     <Build Include="dbo\Tables\Clientes.sql" />
     <Build Include="dbo\Tables\MarcaVehiculo.sql" />
@@ -91,5 +90,12 @@
     <Build Include="dbo\Store Procedures\ClientesObtener.sql" />
     <Build Include="dbo\Store Procedures\ClientesEliminar.sql" />
     <Build Include="dbo\Store Procedures\AgenciaLista.sql" />
+    <Build Include="dbo\Store Procedures\ClientesLista.sql" />
+    <Build Include="dbo\Store Procedures\VehiculoLista.sql" />
+    <Build Include="dbo\Store Procedures\AlquilerActualizar.sql" />
+    <Build Include="dbo\Store Procedures\AlquilerInsertar.sql" />
+    <Build Include="dbo\Store Procedures\AlquilerEliminar.sql" />
+    <Build Include="dbo\Store Procedures\AlquilerObtener.sql" />
+    <Build Include="dbo\Tables\Alquiler.sql" />
   </ItemGroup>
 </Project>

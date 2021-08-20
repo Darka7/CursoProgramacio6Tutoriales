@@ -15,6 +15,8 @@ namespace WBL
         Task<IEnumerable<VehiculoEntity>> Get();
         Task<VehiculoEntity> GetById(VehiculoEntity entity);
         Task<DBEntity> Update(VehiculoEntity entity);
+
+        Task<IEnumerable<VehiculoEntity>> GetLista();
     }
 
     public class VehiculoService : IVehiculoService
@@ -36,6 +38,21 @@ namespace WBL
                 return await result;
             }
             catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<IEnumerable<VehiculoEntity>> GetLista()
+        {
+            try
+            {
+                var result = sql.QueryAsync<VehiculoEntity>("VehiculoLista");
+
+                return await result;
+            }
+            catch (Exception EX)
             {
 
                 throw;
