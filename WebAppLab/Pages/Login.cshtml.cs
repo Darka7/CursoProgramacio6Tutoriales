@@ -51,6 +51,12 @@ namespace WebAppLab.Pages
             }
         }
 
+        public IActionResult OnGetLogout()
+        {
+            HttpContext.Session.Clear();
+
+            return Redirect("../Login");
+        }
 
     }
 }

@@ -306,8 +306,8 @@
                                     Account Setting
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">
-                                    <i data-feather="log-out"
+                                <a class="dropdown-item"  asp-page="/Login" asp-page-handler="Logout" >
+                                    <i data-feather="log-out" 
                                        class="feather-sm text-danger me-1 ms-1"></i> Logout
                                 </a>
                                 <div class="dropdown-divider"></div>
@@ -354,7 +354,7 @@
                                 Account Setting
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="authentication-login3.html">
+                            <a class="dropdown-item" asp-page="/Login" asp-page-handler="Logout">
                                 <i data-feather="log-out"
                                    class="feather-sm text-danger me-1 ms-1"></i> Logout
                             </a>
