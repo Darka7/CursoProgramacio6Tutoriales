@@ -25,6 +25,14 @@ namespace WebAppLab
 
         }
 
+        public async Task<IEnumerable<ClientesEntity>> ClientesGetLista()
+        {
+            var result = await client.ServicioGetAsync<IEnumerable<ClientesEntity>>("api/Clientes/Lista");
+
+            return result;
+
+        }
+
         public async Task<ClientesEntity> ClientesGetById(int id)
         {
             var result = await client.ServicioGetAsync<ClientesEntity>("api/Clientes/" + id);
@@ -59,6 +67,37 @@ namespace WebAppLab
 
         #endregion
 
+
+        #region Alquiler
+        public async Task<IEnumerable<AlquilerEntity>> AlquilerGet()
+        {
+            var result = await client.ServicioGetAsync<IEnumerable<AlquilerEntity>>("api/Alquiler");
+
+            return result;
+
+        }
+
+        public async Task<AlquilerEntity> AlquilerGetById(int id)
+        {
+            var result = await client.ServicioGetAsync<AlquilerEntity>("api/Alquiler/" + id);
+
+            if (result.CodeError is not 0) throw new Exception(result.MsgError);
+
+            return result;
+
+        }
+
+        #endregion
+
+        #region Vehiculos
+        public async Task<IEnumerable<VehiculoEntity>> VehiculoGetLista()
+        {
+            var result = await client.ServicioGetAsync<IEnumerable<VehiculoEntity>>("api/Vehiculo/Lista");
+
+            return result;
+
+        }
+        #endregion
 
     }
 }

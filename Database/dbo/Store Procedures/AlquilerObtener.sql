@@ -14,10 +14,10 @@ AS BEGIN
 		,   A.Observaciones
 		,   A.Estado
 
-		,   C.ClientesId
+		,   A.ClientesId
 		,	C.NombreCompleto
 
-		,   V.VehiculoId
+		,   A.VehiculoId
 		,	V.Matricula
 				
 
@@ -28,6 +28,6 @@ AS BEGIN
          ON A.VehiculoId = V.VehiculoId
 	 
 	WHERE
-	     (@IdAlquiler IS NULL OR IdAlquiler=@IdAlquiler)
+	     (@IdAlquiler IS NULL OR A.IdAlquiler=@IdAlquiler)
 
 END

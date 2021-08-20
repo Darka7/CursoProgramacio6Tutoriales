@@ -31,10 +31,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryAsync<AlquilerEntity,
-                    ClientesEntity,
-                    VehiculoEntity
-                    >("AlquilerObtener", "ClientesId,VehicuoId");
+                var result = sql.QueryAsync<AlquilerEntity,ClientesEntity,VehiculoEntity>(sp:"AlquilerObtener", split: "ClientesId,VehiculoId");
 
                 return await result;
             }
@@ -79,7 +76,7 @@ namespace WBL
                     entity.FechaFin,
                     entity.Monto,
                     entity.Impuesto,
-                    entity.Total,
+                   Total=(entity.Monto*(entity.Impuesto/100))+entity.Monto,
                     entity.Observaciones,
                     entity.Estado,
 
@@ -108,7 +105,7 @@ namespace WBL
                     entity.FechaFin,
                     entity.Monto,
                     entity.Impuesto,
-                    entity.Total,
+                    Total = (entity.Monto * (entity.Impuesto / 100)) + entity.Monto,
                     entity.Observaciones,
                     entity.Estado,
 

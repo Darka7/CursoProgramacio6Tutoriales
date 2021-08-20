@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\App\Agencia\Grid.ts" />
+    <Content Remove="wwwroot\App\Alquiler\Edit.ts" />
+    <Content Remove="wwwroot\App\Alquiler\Grid.ts" />
     <Content Remove="wwwroot\App\Cliente\Grid.ts" />
     <Content Remove="wwwroot\App\Edit.ts" />
     <Content Remove="wwwroot\App\Login.ts" />
@@ -29,6 +31,8 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="wwwroot\App\Agencia\Grid.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Alquiler\Edit.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Alquiler\Grid.ts" />
     <TypeScriptCompile Include="wwwroot\App\Cliente\Grid.ts" />
     <TypeScriptCompile Include="wwwroot\App\Login.ts" />
     <TypeScriptCompile Include="wwwroot\App\MarcaVehiculo\Edit.ts" />

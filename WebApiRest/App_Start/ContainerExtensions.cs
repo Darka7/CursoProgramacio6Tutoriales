@@ -17,8 +17,8 @@ namespace WebApiRest
             services.AddTransient<IUsuariosServices, UsuariosServices>();
             services.AddTransient<IClientesService, ClientesService>();
             services.AddTransient<IAgenciaService, AgenciaService>();
-
-
+            services.AddTransient<IAlquilerService,AlquilerService>();
+            services.AddTransient<IVehiculoService, VehiculoService>();
             return services;
         }
     }

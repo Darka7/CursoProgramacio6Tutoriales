@@ -15,7 +15,17 @@ SET NOCOUNT ON
 	BEGIN TRANSACTION TRASA
 
 	BEGIN TRY
-
+	IF NOT EXISTS(
+	SELECT
+	*
+	FROM dbo.Alquiler
+	WHERE VehiculoId=@VehiculoId and IdAlquiler<>@IdAlquiler
+	AND (
+	@FechaInicio BETWEEN FechaInicio AND FechaFin
+	OR 
+	@FechaFin BETWEEN FechaInicio AND FechaFin
+	)
+	)BEGIN
 		
 	UPDATE dbo.Alquiler SET
 	      ClientesId=@ClientesId,
@@ -30,9 +40,17 @@ SET NOCOUNT ON
 
 	WHERE IdAlquiler=@IdAlquiler
 
+	SELECT 0 AS CodeError, '' AS MsgError
+
+		END
+
+	ELSE BEGIN
+
+	SELECT -3 AS CodeError, 'El Vehiculo ya se encuetra reservado para estas fechas' AS MsgError
+
+	END
+
 		COMMIT TRANSACTION TRASA
-		
-		SELECT 0 AS CodeError, '' AS MsgError
 
 
 

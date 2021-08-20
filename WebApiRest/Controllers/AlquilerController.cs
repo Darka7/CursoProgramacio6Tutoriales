@@ -4,73 +4,59 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WBL;
 using Entity;
+using WBL;
 namespace WebApiRest.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClientesController : ControllerBase
+    public class AlquilerController : ControllerBase
     {
-        private readonly IClientesService clientesService;
+        private readonly IAlquilerService alquilerService;
 
-        public ClientesController(IClientesService clientesService)
+        public AlquilerController(IAlquilerService alquilerService)
         {
-            this.clientesService = clientesService;
+            this.alquilerService = alquilerService;
         }
+
 
 
 
         [HttpGet]
-        public async Task<IEnumerable<ClientesEntity>> Get()
+        public async Task<IEnumerable<AlquilerEntity>> Get()
         {
             try
             {
-                return await clientesService.Get();
+                return await alquilerService.Get();
             }
             catch (Exception ex)
             {
 
-                return new List<ClientesEntity>() ;
-            }
-        }
-
-
-        [HttpGet("Lista")]
-        public async Task<IEnumerable<ClientesEntity>> GetLista()
-        {
-            try
-            {
-                return await clientesService.Get();
-            }
-            catch (Exception ex)
-            {
-
-                return new List<ClientesEntity>();
+                return new List<AlquilerEntity>();
             }
         }
 
         [HttpGet("{id}")]
-        public async Task<ClientesEntity> GetById(int id)
+        public async Task<AlquilerEntity> GetById(int id)
         {
             try
             {
-                return await clientesService.GetById(new ClientesEntity { ClientesId=id });
+                return await alquilerService.GetById(new AlquilerEntity { IdAlquiler = id });
             }
             catch (Exception ex)
             {
 
-                return new ClientesEntity { CodeError=ex.HResult,MsgError=ex.Message };
+                return new AlquilerEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
 
 
         [HttpPost]
-        public async Task<DBEntity> Create(ClientesEntity entity)
+        public async Task<DBEntity> Create(AlquilerEntity entity)
         {
             try
             {
-                return await clientesService.Create(entity);
+                return await alquilerService.Create(entity);
             }
             catch (Exception ex)
             {
@@ -80,11 +66,11 @@ namespace WebApiRest.Controllers
         }
 
         [HttpPut]
-        public async Task<DBEntity> Update(ClientesEntity entity)
+        public async Task<DBEntity> Update(AlquilerEntity entity)
         {
             try
             {
-                return await clientesService.Update(entity);
+                return await alquilerService.Update(entity);
             }
             catch (Exception ex)
             {
@@ -99,7 +85,7 @@ namespace WebApiRest.Controllers
         {
             try
             {
-                return await clientesService.Delete(new ClientesEntity() { ClientesId=id } );
+                return await alquilerService.Delete(new AlquilerEntity() { IdAlquiler = id });
             }
             catch (Exception ex)
             {
@@ -107,8 +93,6 @@ namespace WebApiRest.Controllers
                 return new DBEntity { CodeError = ex.HResult, MsgError = ex.Message };
             }
         }
-
-
 
 
 

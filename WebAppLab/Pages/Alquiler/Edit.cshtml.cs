@@ -11,26 +11,51 @@ namespace WebAppLab.Pages.Alquiler
 {
     public class EditModel : PageModel
     {
-        private readonly IAlquilerService alquilerService;
-        private readonly IClientesService clientesService;
-        private readonly IVehiculoService vehiculoService;
+        private readonly ServiceApi service;
 
-
-        public EditModel(IAlquilerService alquilerService, IClientesService clientesService,
-            IVehiculoService vehiculoService)
+        public EditModel(ServiceApi service)
         {
-            this.alquilerService = alquilerService;
-            this.clientesService = clientesService;
-            this.vehiculoService = vehiculoService;
-
+            this.service = service;
         }
 
 
-        [BindProperty]
-        [FromBody]
-        public AlquilerEntity Entity { get; set; } = new AlquilerEntity(); 
-        public void OnGet()
+        [BindProperty(SupportsGet = true)]
+        public int? id { get; set; }
+
+
+        public AlquilerEntity Entity { get; set; } = new AlquilerEntity();
+
+
+        public IEnumerable<ClientesEntity> ClienteLista { get; set; } = new List<ClientesEntity>();
+
+        public IEnumerable<VehiculoEntity> VehiculoLista { get; set; } = new List<VehiculoEntity>();
+
+
+
+
+        public async Task<IActionResult> OnGet()
         {
+            try
+            {
+                if (id.HasValue)
+                {
+                    Entity = await service.AlquilerGetById(id.Value);
+                }
+
+
+                ClienteLista = await service.ClientesGetLista();
+
+                VehiculoLista = await service.VehiculoGetLista();
+
+                return Page();
+            }
+            catch (Exception ex)
+            {
+
+                return Content(ex.Message);
+            }
         }
+
+
     }
 }

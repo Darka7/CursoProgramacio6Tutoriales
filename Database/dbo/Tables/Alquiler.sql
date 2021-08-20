@@ -6,6 +6,7 @@
 	     	CONSTRAINT FK_Alquier_Cliente FOREIGN KEY(ClientesId) REFERENCES dbo.Clientes(ClientesId)
 	 , VehiculoId INT NOT NULL
 	     	CONSTRAINT FK_Alquier_Vehiculo FOREIGN KEY(VehiculoId) REFERENCES dbo.Vehiculo(VehiculoId)
+			
 	 , FechaInicio DATETIME NOT NULL
 	 , FechaFin DATETIME NOT NULL
 	 , Monto DECIMAL(18,2) NOT NULL

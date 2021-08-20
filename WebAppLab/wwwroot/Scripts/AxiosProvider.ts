@@ -31,6 +31,15 @@ namespace App.AxiosProvider   {
 
 
     export const UsuarioLogin = (entity) => axios.post<DBEntity>("Login", entity).then(({ data }) => data);
+
+
+
+
+    export const AlquilerEliminar = (id) => ServiceApi.delete<DBEntity>("api/Alquiler/" + id).then(({ data }) => data);
+
+    export const AlquilerGuardar = (entity) => ServiceApi.post<DBEntity>("api/Alquiler", entity).then(({ data }) => data);
+
+    export const AlquilerActualizar = (entity) => ServiceApi.put<DBEntity>("api/Alquiler", entity).then(({ data }) => data);
 }
 
 

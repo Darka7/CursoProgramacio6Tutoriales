@@ -15,8 +15,8 @@ namespace Entity
 
         }
         public int? IdAlquiler { get; set; }
-        public DateTime FechaInicio { get; set; }
-        public DateTime FechaFin { get; set; }
+        public DateTime FechaInicio { get; set; } = DateTime.Now;
+        public DateTime FechaFin { get; set; } = DateTime.Now;
         public decimal Monto { get; set; }
         public decimal Impuesto { get; set; }
         public decimal Total { get; set; }
